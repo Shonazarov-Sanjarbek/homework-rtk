@@ -19,14 +19,25 @@ const Category = () => {
             data?.map((users)=>(
                 <div className='p-2 flex flex-col w-[300px] border' key={users.id}>
                     <img className='w-full h-[200px]' src={users.gender === "male" ? male : female} alt={users.gender} />
-                    <h5>{users.fname}</h5>
-                    <h5>{users.lname}</h5>
-                    <h4>{users.gender}</h4>
-                    <h4>{users.bio}</h4>
+                    <div className='flex justify-between p-2'>
+                      <span>First name:</span>
+                      <span>{users.fname}</span>
+                    </div>
+                    <div className='flex justify-between p-2'>
+                      <span>Last name:</span>
+                      <span>{users.lname}</span>
+                    </div>
+                    <div className='flex justify-between p-2'>
+                      <span>Gender:</span>
+                      <span>{users.gender}</span>
+                    </div>
+                    <div className='flex justify-between p-2'>
+                      <span>Bio:</span>
+                      <span>{users.bio}</span>
+                    </div>
                     <Button  type="primary" onClick={() => deleteCategory(users.id)}>
                       {isLoading ? "Loading..." : "Delete"}
                     </Button>
-
                 </div>
             ))
         }
